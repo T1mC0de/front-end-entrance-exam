@@ -1,0 +1,695 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #F0F0F0;
+    min-height: 100vh; /* Гарантируем, что body займет всю высоту viewport */
+
+    display: grid;
+    /* Определяем две основные области: header и main */
+
+    grid-template-rows: auto 1fr; /* header по содержимому, main занимает оставшееся пространство */
+    grid-template-columns: 1fr; /* Одна колонка, чтобы оба элемента занимали 100% ширины */
+
+    grid-template-areas: 
+        "header"
+        "main"; /* Определяем области для header и main */
+
+    grid-gap: 1%; /* Отступы между элементами сетки */
+
+    box-sizing: border-box; /* padding не увеличивает общую ширину/высоту */
+    
+}
+
+main {
+    padding: 2%; /* Общие отступы от краев окна браузера */
+
+    margin: 0% 20%;
+
+    background-color: white;
+
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "intro-row"
+        "experience-row"
+        "education-row";
+    gap: 30px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15)
+}
+
+header {
+    grid-area: header; /* Указываем, что этот элемент занимает область header */
+    background-color: #F0F0F0; /* Цвет фона для header */
+    color: white; /* Цвет текста в header */
+    padding: 20px; /* Отступы внутри header */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 24px; /* Размер шрифта для заголовка */
+}
+
+section {
+    background-color: #F0F0F0; /* Общий фон для большинства секций */
+    border-radius: 20px;
+    padding: 0% 2%; /* Общий внутренний отступ */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.resume-link {
+    color: black; /* Initial text color */
+    text-decoration: none; /* Removes underline */
+    position: relative; /* Needed for absolute positioning of ::before */
+    display: inline-block; /* Allows for proper positioning */
+    overflow: hidden; /* Hides the ::before content initially */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.resume-link span {
+    display: block; /* Ensures the span takes up its own space */
+    transition: transform 0.3s ease; /* Smooth transition for the initial text */
+}
+
+.resume-link::before {
+    content: "Клик"; /* Text that appears on hover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Add this line */
+    height: 100%; /* Add this line */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* No background color needed, text will be gray */
+    color: black; /* Color of the hover text */
+    transform: translateY(100%); /* Hides the pseudo-element below */
+    transition: transform 0.3s ease; /* Smooth transition for the hover text */
+}
+
+.resume-link:hover span {
+    transform: translateY(-100%); /* Moves the original text up and out */
+}
+
+.resume-link:hover::before {
+    transform: translateY(0); /* Moves the hover text into view */
+}
+
+
+.intro-row {
+    grid-area: intro-row;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 2fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-areas: "profile intro languages";
+    gap: 30px;
+}
+
+.experience-row {
+    grid-area: experience-row;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 4fr 1fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-areas: "experience tools";
+    gap: 30px;
+}
+
+.education-row {
+    grid-area: education-row;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-areas: 
+      "education interests"
+      "education contact";
+    gap: 30px;
+}
+
+#profile-img {
+    grid-area: profile;
+    width: 100%; /* Ширина изображения занимает всю ячейку */
+    height: auto; /* Высота автоматически подстраивается */
+    align-self: center; /* Центрирует изображение по вертикали */
+    justify-self: center; /* Центрирует изображение по горизонтали */
+}
+
+.intro {
+    grid-area: intro;
+    aspect-ratio: 1 / 1;
+    width: 100%; /* Ширина изображения занимает всю ячейку */
+    height: auto; /* Высота автоматически подстраивается */
+    align-self: center; /* Центрирует изображение по вертикали */
+    justify-self: center; /* Центрирует изображение по горизонтали */
+    text-align:left;
+    padding: 0 20px;
+    font-size: 1.1em; /* Увеличиваем размер шрифта для лучшей читаемости */
+    position: relative;
+}
+
+#greeting {
+    font-size: 1.2em; /* Увеличиваем размер шрифта для приветствия */
+    color: #333; /* Меняем цвет текста для лучшей читаемости */
+    margin-top: 0px; /* Добавляем отступ сверху */
+    position: relative;
+    top: 9%; /* Сдвигаем текст вниз, чтобы он не перекрывал имя */
+}
+
+#name{
+    font-size: 1.4em; /* Увеличиваем размер шрифта для имени */
+    position: relative;
+    top: 40%;
+}
+
+#greeting-position {
+    font-size: 1em; /* Увеличиваем размер шрифта для должности */
+    color: #5C5C5C; /* Меняем цвет текста для лучшей читаемости */
+    position: relative;
+    top: 35%; /* Сдвигаем текст вниз, чтобы он не перекрывал имя */
+    left: 0%;
+}
+
+.languages {
+    grid-area: languages;
+    aspect-ratio: 2 / 1;
+    width: 100%; /* Ширина изображения занимает всю ячейку */
+    height: auto; /* Высота автоматически подстраивается */
+    align-self: center; /* Центрирует изображение по вертикали */
+    justify-self: center; /* Центрирует изображение по горизонтали */
+    padding: 0 20px;
+    
+}
+
+#languages h2 {
+    font-size: 1.4em; /* Увеличиваем размер шрифта для заголовка языков */
+    color: #333; /* Меняем цвет текста для лучшей читаемости */
+    margin-bottom: 10px; /* Добавляем отступ снизу */
+}
+
+.custom-range-text-field {
+    /* Переменная --fill-percentage будет установлена в инлайн-стиле HTML */
+    width: 70%;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Псевдоэлемент для заполненной части */
+.custom-range-text-field::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: var(--fill-percentage);
+    background-color: #28D979; /* Зеленый цвет заполнения */
+    border-radius: 3px;
+}
+
+.language-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0% 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.flex-spacer {
+    flex-grow: 1; /* Заполняет оставшееся пространство */
+}
+
+.language-list-item {
+    display: flex;             /* Используем Flexbox для выравнивания содержимого */
+    align-items: center ;       /* Выравниваем элементы по центру по вертикали */
+    margin-bottom: 10px;       /* Добавим небольшой отступ между пунктами списка */
+    font-size: 1.1em;          /* Немного увеличим размер шрифта для читаемости */
+    color: black;
+    padding: 1%;
+}
+
+li > div.custom-range-text-field {
+            margin-left: 15px; /* Отступ слева от шкалы */
+}
+
+.most-recent-job {
+    background-color: #28D979; /* Зеленый цвет фона, как на скриншоте */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 3%;
+    color: white; /* Белый текст */
+    font-family: sans-serif; /* Или любой другой шрифт */
+    margin: 20px auto; /* Центрировать блок */
+    display: flex; /* Для размещения даты/тега и основного контента */
+    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+}
+
+.most-recent-job-header {
+    display: flex; /* Для размещения даты и тега в одной строке */
+    justify-content: space-between; /* Размещает элементы по краям */
+    align-items: top; /* Выравнивает по центру по вертикали */
+}
+
+.date {
+    font-size: 1em;
+}
+
+.tag {
+    background-color: #7E731266; /* Более темный зеленый для тега */
+    color: #DDF163;
+    padding: 5px 12px;
+    border-radius: 20px; /* Очень сильно скругленные углы для тега */
+    font-size: 1em;
+}
+
+.most-recent-job-content {
+    display: flex; /* Делает родительский элемент flex-контейнером */
+    /* Опционально: */
+    justify-content: space-around; /* Распределяет пространство между элементами */
+    align-items: top; /* Выравнивает элементы по центру по поперечной оси */
+    margin-top: 1%;
+}
+
+.most-recent-job-list{
+    list-style-type:disc;
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    width: 100%; /* Ограничиваем ширину списка */
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.most-recent-job-place {
+    margin: 0;
+    padding: 0;
+    width: 46%;
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this to stack items vertically */
+}
+
+.job-place {
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this to stack items vertically */
+}
+
+#most-recent-job-title {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.job-title {
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.most-recent-job-extra{
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.job-extra{
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.job-list{
+    list-style-type:disc;
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    width: 100%; /* Ограничиваем ширину списка */
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.job-list-item {
+    list-style-type: disc; /* Обязательно убедитесь, что это здесь */
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    margin: 0;
+    margin-bottom: 5px; /* Добавим небольшой отступ между пунктами списка */
+    font-size: 1.1em; /* Немного увеличим размер шрифта для читаемости */
+    color: black;
+    line-height: 1.5;
+}
+
+.job {
+    background-color: white; /* Зеленый цвет фона, как на скриншоте */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 3%;
+    color: black; /* Черный текст */
+    font-family: sans-serif; /* Или любой другой шрифт */
+    margin: 20px auto; /* Центрировать блок */
+    display: flex; /* Для размещения даты/тега и основного контента */
+    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+}
+
+.experience {
+    grid-area: experience;
+    gap: 10%;
+}
+
+
+.tools {
+    grid-area: tools;
+    gap: 10%;
+}
+
+.design {
+  /* Это стили для всей вашей карточки, если она есть */
+    position: relative; /* Важно для позиционирования design-label */
+    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
+    height: 30%; /* Примерная высота */
+    background-color: white; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов карточки */
+    left: 10%; /* Центрируем карточку по горизонтали */
+    margin-bottom: 20%;
+}
+
+
+.no-code {
+    /* Это стили для всей вашей карточки, если она есть */
+    position: relative; /* Важно для позиционирования design-label */
+    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
+    height: 21%; /* Примерная высота */
+    background-color: white; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов карточки */
+    left: 10%; /* Центрируем карточку по горизонтали */
+    margin-bottom: 20%;
+}
+
+.AI {
+    /* Это стили для всей вашей карточки, если она есть */
+    position: relative; /* Важно для позиционирования design-label */
+    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
+    height: 21%; /* Примерная высота */
+    background-color: white; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов карточки */
+    left: 10%; /* Центрируем карточку по горизонтали */
+}
+
+.ai-icon{
+    position: absolute; /* Позиционируем относительно ближайшего позиционированного предка (container) */
+    top: -5%; /* Отступ сверху */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Точная центровка */
+    background-color: black; /* Черный фон */
+    color: white; /* Белый текст */
+    padding: 5px 10px; /* Отступы внутри подписи */
+    border-radius: 50px; /* Очень большое скругление для pill-образного вида */
+    font-family: Arial, sans-serif; /* Пример шрифта, выберите свой */
+    font-size: 8px; /* Размер шрифта */
+    font-weight: 400; /* Жирный текст */
+    text-transform: lowercase; /* Все буквы маленькие, как на картинке */
+    width: 70%;
+
+    display: flex; /* Для выравнивания текста по центру, если он будет больше */
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: center; /* Выравнивание по горизонтали */
+}
+
+#tools{
+    margin: 5%;
+    margin-bottom: 20%;
+}
+
+.design-icon {
+    position: absolute; /* Позиционируем относительно ближайшего позиционированного предка (container) */
+    top: -5%; /* Отступ сверху */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Точная центровка */
+    background-color: black; /* Черный фон */
+    color: white; /* Белый текст */
+    padding: 5px 10px; /* Отступы внутри подписи */
+    border-radius: 50px; /* Очень большое скругление для pill-образного вида */
+    font-family: Arial, sans-serif; /* Пример шрифта, выберите свой */
+    font-size: 8px; /* Размер шрифта */
+    font-weight: 400; /* Жирный текст */
+    text-transform: lowercase; /* Все буквы маленькие, как на картинке */
+
+    display: flex; /* Для выравнивания текста по центру, если он будет больше */
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: center; /* Выравнивание по горизонтали */
+}
+
+.icons-design-grid {
+    display: grid; /* Используем Grid для выравнивания иконок */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "figma photoshop"
+        "illustrator premiere"
+        "notion meet";
+    height: 80%;
+    width: 80%;
+    justify-items: center;
+    margin: auto; /* Центрируем сетку */
+    padding-top: 15%;
+}
+
+.icons-no-code-grid {
+    display: grid; /* Используем Grid для выравнивания иконок */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "zapier webflow"
+        "framer wordpress";
+    height: 80%;
+    width: 80%;
+    justify-items: center;
+    justify-content: center;
+    margin: auto; /* Центрируем сетку */
+    padding-top: 10%;
+}
+
+
+.icons-ai-grid {
+    display: grid; /* Используем Grid для выравнивания иконок */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "gpt copilot"
+        "midjourney .";
+    height: 80%;
+    width: 80%;
+    justify-items: center;
+    justify-content: center;
+    margin: auto; /* Центрируем сетку */
+    padding-top: 10%;
+}
+
+#zapier-img{
+    grid-area: zapier;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#gpt-img {
+    grid-area: gpt;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#copilot-img {
+    grid-area: copilot;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#gpt-img {
+    grid-area: gpt;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#midjourney-img {
+    grid-area: midjourney;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#framer-img {
+    grid-area: framer;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+
+#wordpress-img {
+    grid-area: webflow;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#webflow-img {
+    grid-area: wordpress;
+    width: 60%;
+    height: auto;
+    align-self: center;
+}
+
+#figma-img {
+    grid-area: figma;
+    width: 40%;
+    height: auto;
+    align-self: center;
+}
+#photoshop-img {
+    grid-area: photoshop;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+#illustrator-img {
+    grid-area: illustrator;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+#premiere-img {
+    grid-area: premiere;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+#notion-img {
+    grid-area: notion;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+#meet-img {
+    grid-area: meet;
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+
+.mvp-education-item {
+    background-color: #28D979; /* Зеленый цвет фона, как на скриншоте */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 3%;
+    color: white; /* Белый текст */
+    font-family: sans-serif; /* Или любой другой шрифт */
+    margin: 20px auto; /* Центрировать блок */
+    display: flex; /* Для размещения даты/тега и основного контента */
+    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+}
+
+.education {
+    grid-area: education;
+}
+
+.education-item {
+    background-color: white; /* Зеленый цвет фона, как на скриншоте */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 3%;
+    color: balck; /* Белый текст */
+    font-family: sans-serif; /* Или любой другой шрифт */
+    margin: 20px auto; /* Центрировать блок */
+    display: flex; /* Для размещения даты/тега и основного контента */
+    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+}
+
+.education-grid{
+    display: grid; /* Используем Grid для выравнивания иконок */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "mvp-edu first-edu"
+        "second-edu .";
+    height: 80%;
+    width: 90%;
+    justify-items: center;
+    justify-content: center;
+
+    gap: 20px; /* Отступы между элементами сетки */
+    
+}
+
+.education-year-container {
+    display: flex; /* Для размещения даты и тега в одной строке */
+    justify-content: space-between; /* Размещает элементы по краям */
+    align-items: top; /* Выравнивает по центру по вертикали */
+    margin-top: 10px; /* Отступ снизу для отделения от контента */
+    margin-bottom: 20px;
+}
+
+.education-heart-icon {
+    width: 10%;
+    height: auto;
+}
+
+.education-place{
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+.mvp-education-tags {
+    display: flex; /* Используем Flexbox для выравнивания тегов */
+    flex-wrap: wrap; /* Позволяет тегам переноситься на новую строку */
+    gap: 10px; /* Отступы между тегами */
+    width: 80%;
+    margin: 0;
+    font-weight: 100;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+.education-tags {
+    display: flex; /* Используем Flexbox для выравнивания тегов */
+    flex-wrap: wrap; /* Позволяет тегам переноситься на новую строку */
+    gap: 10px; /* Отступы между тегами */
+    width: 80%;
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    color: #149063;
+}
+
+
+.interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 16px;
+    grid-area: interests;
+    width: 100%;
+}
+
+.interests h2 {
+    width: 100%;
+    height: 10%;
+    margin: 0 0 8px 0;
+}
+
+.interest {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    font-size: 14px;
+    font-weight: 500;
+
+    color: black;
+    background-color: white;
+    white-space: nowrap; /* чтобы не переносился текст */
+    line-height: 1;
+}
+
+
+
+.contact {
+    grid-area: contact;
+}
+
+
+
