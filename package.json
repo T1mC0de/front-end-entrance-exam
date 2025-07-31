@@ -18,5 +18,18 @@
   },
   "dependencies": {
     "html2pdf.js": "^0.10.3"
-  }
+  },
+  "description": "Этот проект представляет собой динамическое резюме, которое позволяет пользователям **редактировать свою информацию прямо в браузере**. Все изменения **сохраняются локально** и **сохраняются даже после перезагрузки страницы**.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T1mC0de/front-end-entrance-exam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T1mC0de/front-end-entrance-exam/issues"
+  },
+  "homepage": "https://github.com/T1mC0de/front-end-entrance-exam#readme"
 }
