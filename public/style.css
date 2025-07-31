@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
@@ -9,31 +10,21 @@ body {
     font-family: Poppins;
     margin: 0;
     background-color: #F0F0F0;
-    min-height: 100vh; /* Гарантируем, что body займет всю высоту viewport */
-
+    min-height: 100vh;
     display: grid;
-    /* Определяем две основные области: header и main */
-
-    grid-template-rows: auto 1fr; /* header по содержимому, main занимает оставшееся пространство */
-    grid-template-columns: 1fr; /* Одна колонка, чтобы оба элемента занимали 100% ширины */
-
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas: 
         "header"
-        "main"; /* Определяем области для header и main */
-
-    grid-gap: 1%; /* Отступы между элементами сетки */
-
-    box-sizing: border-box; /* padding не увеличивает общую ширину/высоту */
-    
+        "main";
+    grid-gap: 1%;
+    box-sizing: border-box;
 }
 
 #resume-main-content {
-    padding: 2%; /* Общие отступы от краев окна браузера */
-
+    padding: 2%;
     margin: 0% 20%;
-
     background-color: white;
-
     display: grid;
     grid-template-rows: 0.5fr 2fr 1.5fr;
     grid-template-columns: 1fr;
@@ -42,71 +33,69 @@ body {
         "experience-row"
         "education-row";
     gap: 30px;
-
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15)
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 header {
-    grid-area: header; /* Указываем, что этот элемент занимает область header */
-    background-color: #F0F0F0; /* Цвет фона для header */
-    color: white; /* Цвет текста в header */
-    padding: 20px; /* Отступы внутри header */
-    text-align: center; /* Выравнивание текста по центру */
-    font-size: 24px; /* Размер шрифта для заголовка */
+    grid-area: header;
+    background-color: #F0F0F0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
 }
 
 section {
-    background-color: #F0F0F0; /* Общий фон для большинства секций */
+    background-color: #F0F0F0;
     border-radius: 20px;
-    padding: 0% 2%; /* Общий внутренний отступ */
+    padding: 0% 2%;
     box-sizing: border-box;
     overflow: hidden;
 }
 
 .resume-link {
-    color: black; /* Initial text color */
-    text-decoration: none; /* Removes underline */
-    position: relative; /* Needed for absolute positioning of ::before */
-    display: inline-block; /* Allows for proper positioning */
-    overflow: hidden; /* Hides the ::before content initially */
-    transition: color 0.3s ease; /* Smooth transition for text color */
+    color: black;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: color 0.3s ease;
 }
 
 .resume-link span {
-    display: block; /* Ensures the span takes up its own space */
-    transition: transform 0.3s ease; /* Smooth transition for the initial text */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .resume-link::before {
-    content: "Клик"; /* Text that appears on hover */
+    content: "Клик";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Add this line */
-    height: 100%; /* Add this line */
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent; /* No background color needed, text will be gray */
-    color: black; /* Color of the hover text */
-    transform: translateY(100%); /* Hides the pseudo-element below */
-    transition: transform 0.3s ease; /* Smooth transition for the hover text */
+    background-color: transparent;
+    color: black;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
 .resume-link:hover span {
-    transform: translateY(-100%); /* Moves the original text up and out */
+    transform: translateY(-100%);
 }
 
 .resume-link:hover::before {
-    transform: translateY(0); /* Moves the hover text into view */
+    transform: translateY(0);
 }
-
 
 .intro-row {
     grid-area: intro-row;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 2fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-areas: "profile intro languages";
     gap: 30px;
 }
@@ -115,7 +104,7 @@ section {
     grid-area: experience-row;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 4fr 1fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-columns: 4fr 1fr;
     grid-template-areas: "experience tools";
     gap: 30px;
 }
@@ -124,7 +113,7 @@ section {
     grid-area: education-row;
     display: grid;
     grid-template-rows: 3fr 2fr;
-    grid-template-columns: 1fr 1fr; /* 3 колонки: изображение, основная информация, языки */
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
       "education interests"
       "education contact";
@@ -133,120 +122,117 @@ section {
 
 #profile-img {
     grid-area: profile;
-    width: 100%; /* Ширина изображения занимает всю ячейку */
-    height: auto; /* Высота автоматически подстраивается */
-    align-self: center; /* Центрирует изображение по вертикали */
-    justify-self: center; /* Центрирует изображение по горизонтали */
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
 }
 
 .intro {
     grid-area: intro;
     aspect-ratio: 1 / 1;
-    width: 100%; /* Ширина изображения занимает всю ячейку */
-    height: auto; /* Высота автоматически подстраивается */
-    align-self: center; /* Центрирует изображение по вертикали */
-    justify-self: center; /* Центрирует изображение по горизонтали */
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
     text-align:left;
     padding: 0 20px;
-    font-size: 1.1em; /* Увеличиваем размер шрифта для лучшей читаемости */
+    font-size: 1.1em;
     position: relative;
 }
 
 #greeting {
-    font-size: 1.2em; /* Увеличиваем размер шрифта для приветствия */
-    color: #333; /* Меняем цвет текста для лучшей читаемости */
-    margin-top: 0px; /* Добавляем отступ сверху */
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0px;
     position: relative;
-    top: 9%; /* Сдвигаем текст вниз, чтобы он не перекрывал имя */
+    top: 9%;
 }
 
 #name{
-    font-size: 1.4em; /* Увеличиваем размер шрифта для имени */
+    font-size: 1.4em;
     position: relative;
     top: 40%;
 }
 
 #greeting-position {
-    font-size: 1em; /* Увеличиваем размер шрифта для должности */
-    color: #5C5C5C; /* Меняем цвет текста для лучшей читаемости */
+    font-size: 1em;
+    color: #5C5C5C;
     position: relative;
-    top: 35%; /* Сдвигаем текст вниз, чтобы он не перекрывал имя */
+    top: 35%;
     left: 0%;
 }
 
 .languages {
     grid-area: languages;
     aspect-ratio: 2 / 1;
-    width: 100%; /* Ширина изображения занимает всю ячейку */
-    height: auto; /* Высота автоматически подстраивается */
-    align-self: center; /* Центрирует изображение по вертикали */
-    justify-self: center; /* Центрирует изображение по горизонтали */
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
     padding: 0 20px;
-    
 }
 
 #languages h2 {
-    font-size: 1.4em; /* Увеличиваем размер шрифта для заголовка языков */
-    color: #333; /* Меняем цвет текста для лучшей читаемости */
-    margin-bottom: 10px; /* Добавляем отступ снизу */
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .custom-range-text-field {
-    /* Переменная --fill-percentage будет установлена в инлайн-стиле HTML */
     width: 70%;
     height: 20px;
     position: relative;
     overflow: hidden;
 }
 
-/* Псевдоэлемент для заполненной части */
 .custom-range-text-field::before {
     content: '';
     display: block;
     height: 100%;
     width: var(--fill-percentage);
-    background-color: #28D979; /* Зеленый цвет заполнения */
+    background-color: #28D979;
     border-radius: 3px;
 }
 
 .language-list {
-    list-style: none; /* Убираем маркеры списка */
-    padding: 0% 0; /* Убираем отступы */
-    margin: 0; /* Убираем внешние отступы */
+    list-style: none;
+    padding: 0% 0;
+    margin: 0;
 }
 
 .flex-spacer {
-    flex-grow: 1; /* Заполняет оставшееся пространство */
+    flex-grow: 1;
 }
 
 .language-list-item {
-    display: flex;             /* Используем Flexbox для выравнивания содержимого */
-    align-items: center ;       /* Выравниваем элементы по центру по вертикали */
-    margin-bottom: 10px;       /* Добавим небольшой отступ между пунктами списка */
-    font-size: 1.1em;          /* Немного увеличим размер шрифта для читаемости */
+    display: flex;
+    align-items: center ;
+    margin-bottom: 10px;
+    font-size: 1.1em;
     color: black;
     padding: 1%;
 }
 
 li > div.custom-range-text-field {
-            margin-left: 15px; /* Отступ слева от шкалы */
+    margin-left: 15px;
 }
 
 .most-recent-job {
-    background-color: #28D979; /* Зеленый цвет фона, как на скриншоте */
-    border-radius: 15px; /* Скругленные углы */
+    background-color: #28D979;
+    border-radius: 15px;
     padding: 3%;
-    color: white; /* Белый текст */
-    font-family: Poppins; /* Или любой другой шрифт */
-    margin: 20px auto; /* Центрировать блок */
-    display: flex; /* Для размещения даты/тега и основного контента */
-    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+    color: white;
+    font-family: Poppins;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .most-recent-job-header {
-    display: flex; /* Для размещения даты и тега в одной строке */
-    justify-content: space-between; /* Размещает элементы по краям */
-    align-items: top; /* Выравнивает по центру по вертикали */
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
 }
 
 .date {
@@ -254,26 +240,25 @@ li > div.custom-range-text-field {
 }
 
 .tag {
-    background-color: #7E731266; /* Более темный зеленый для тега */
+    background-color: #7E731266;
     color: #DDF163;
     padding: 5px 12px;
-    border-radius: 20px; /* Очень сильно скругленные углы для тега */
+    border-radius: 20px;
     font-size: 1em;
 }
 
 .most-recent-job-content {
-    display: flex; /* Делает родительский элемент flex-контейнером */
-    /* Опционально: */
-    justify-content: space-around; /* Распределяет пространство между элементами */
-    align-items: top; /* Выравнивает элементы по центру по поперечной оси */
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
     margin-top: 1%;
 }
 
 .most-recent-job-list{
     list-style-type:disc;
-    padding: 0; /* Убираем отступы */
-    margin: 0; /* Убираем внешние отступы */
-    width: 100%; /* Ограничиваем ширину списка */
+    padding: 0;
+    margin: 0;
+    width: 100%;
     font-size: 0.8em;
     font-weight: 300;
 }
@@ -282,16 +267,16 @@ li > div.custom-range-text-field {
     margin: 0;
     padding: 0;
     width: 46%;
-    display: flex; /* Add this */
-    flex-direction: column; /* Add this to stack items vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 .job-place {
     margin: 0;
     padding: 0;
     width: 60%;
-    display: flex; /* Add this */
-    flex-direction: column; /* Add this to stack items vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 #most-recent-job-title {
@@ -322,32 +307,32 @@ li > div.custom-range-text-field {
 
 .job-list{
     list-style-type:disc;
-    padding: 0; /* Убираем отступы */
-    margin: 0; /* Убираем внешние отступы */
-    width: 100%; /* Ограничиваем ширину списка */
+    padding: 0;
+    margin: 0;
+    width: 100%;
     font-size: 0.8em;
     font-weight: 300;
 }
 
 .job-list-item {
-    list-style-type: disc; /* Обязательно убедитесь, что это здесь */
-    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    list-style-type: disc;
+    align-items: center;
     margin: 0;
-    margin-bottom: 5px; /* Добавим небольшой отступ между пунктами списка */
-    font-size: 1.1em; /* Немного увеличим размер шрифта для читаемости */
+    margin-bottom: 5px;
+    font-size: 1.1em;
     color: black;
     line-height: 1.5;
 }
 
 .job {
-    background-color: white; /* Зеленый цвет фона, как на скриншоте */
-    border-radius: 15px; /* Скругленные углы */
+    background-color: white;
+    border-radius: 15px;
     padding: 3%;
-    color: black; /* Черный текст */
-    font-family: Poppins; /* Или любой другой шрифт */
-    margin: 20px auto; /* Центрировать блок */
-    display: flex; /* Для размещения даты/тега и основного контента */
-    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+    color: black;
+    font-family: Poppins;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .experience {
@@ -355,63 +340,57 @@ li > div.custom-range-text-field {
     gap: 10%;
 }
 
-
 .tools {
     grid-area: tools;
     gap: 10%;
 }
 
 .design {
-  /* Это стили для всей вашей карточки, если она есть */
-    position: relative; /* Важно для позиционирования design-label */
-    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
-    height: 30%; /* Примерная высота */
-    background-color: white; /* Цвет фона карточки */
-    border-radius: 10px; /* Скругление углов карточки */
-    left: 10%; /* Центрируем карточку по горизонтали */
+    position: relative;
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    border-radius: 10px;
+    left: 10%;
     margin-bottom: 20%;
 }
 
-
 .no-code {
-    /* Это стили для всей вашей карточки, если она есть */
-    position: relative; /* Важно для позиционирования design-label */
-    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
-    height: 21%; /* Примерная высота */
-    background-color: white; /* Цвет фона карточки */
-    border-radius: 10px; /* Скругление углов карточки */
-    left: 10%; /* Центрируем карточку по горизонтали */
+    position: relative;
+    width: 80%;
+    height: 21%;
+    background-color: white;
+    border-radius: 10px;
+    left: 10%;
     margin-bottom: 20%;
 }
 
 .AI {
-    /* Это стили для всей вашей карточки, если она есть */
-    position: relative; /* Важно для позиционирования design-label */
-    width: 80%; /* Примерная ширина, адаптируйте под свой дизайн */
-    height: 21%; /* Примерная высота */
-    background-color: white; /* Цвет фона карточки */
-    border-radius: 10px; /* Скругление углов карточки */
-    left: 10%; /* Центрируем карточку по горизонтали */
+    position: relative;
+    width: 80%;
+    height: 21%;
+    background-color: white;
+    border-radius: 10px;
+    left: 10%;
 }
 
 .ai-icon{
-    position: absolute; /* Позиционируем относительно ближайшего позиционированного предка (container) */
-    top: -5%; /* Отступ сверху */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translateX(-50%); /* Точная центровка */
-    background-color: black; /* Черный фон */
-    color: white; /* Белый текст */
-    padding: 5px 10px; /* Отступы внутри подписи */
-    border-radius: 50px; /* Очень большое скругление для pill-образного вида */
-    font-family: Poppins; /* Пример шрифта, выберите свой */
-    font-size: 8px; /* Размер шрифта */
-    font-weight: 400; /* Жирный текст */
-    text-transform: lowercase; /* Все буквы маленькие, как на картинке */
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 400;
+    text-transform: lowercase;
     width: 70%;
-
-    display: flex; /* Для выравнивания текста по центру, если он будет больше */
-    align-items: center; /* Выравнивание по вертикали */
-    justify-content: center; /* Выравнивание по горизонтали */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #tools{
@@ -420,26 +399,25 @@ li > div.custom-range-text-field {
 }
 
 .design-icon {
-    position: absolute; /* Позиционируем относительно ближайшего позиционированного предка (container) */
-    top: -5%; /* Отступ сверху */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translateX(-50%); /* Точная центровка */
-    background-color: black; /* Черный фон */
-    color: white; /* Белый текст */
-    padding: 5px 10px; /* Отступы внутри подписи */
-    border-radius: 50px; /* Очень большое скругление для pill-образного вида */
-    font-family: Poppins; /* Пример шрифта, выберите свой */
-    font-size: 8px; /* Размер шрифта */
-    font-weight: 400; /* Жирный текст */
-    text-transform: lowercase; /* Все буквы маленькие, как на картинке */
-
-    display: flex; /* Для выравнивания текста по центру, если он будет больше */
-    align-items: center; /* Выравнивание по вертикали */
-    justify-content: center; /* Выравнивание по горизонтали */
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 400;
+    text-transform: lowercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icons-design-grid {
-    display: grid; /* Используем Grid для выравнивания иконок */
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 
@@ -449,12 +427,12 @@ li > div.custom-range-text-field {
     height: 80%;
     width: 80%;
     justify-items: center;
-    margin: auto; /* Центрируем сетку */
+    margin: auto;
     padding-top: 15%;
 }
 
 .icons-no-code-grid {
-    display: grid; /* Используем Grid для выравнивания иконок */
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
@@ -464,13 +442,12 @@ li > div.custom-range-text-field {
     width: 80%;
     justify-items: center;
     justify-content: center;
-    margin: auto; /* Центрируем сетку */
+    margin: auto;
     padding-top: 10%;
 }
 
-
 .icons-ai-grid {
-    display: grid; /* Используем Grid для выравнивания иконок */
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
@@ -480,7 +457,7 @@ li > div.custom-range-text-field {
     width: 80%;
     justify-items: center;
     justify-content: center;
-    margin: auto; /* Центрируем сетку */
+    margin: auto;
     padding-top: 10%;
 }
 
@@ -546,30 +523,35 @@ li > div.custom-range-text-field {
     height: auto;
     align-self: center;
 }
+
 #photoshop-img {
     grid-area: photoshop;
     width: 50%;
     height: auto;
     align-self: center;
 }
+
 #illustrator-img {
     grid-area: illustrator;
     width: 50%;
     height: auto;
     align-self: center;
 }
+
 #premiere-img {
     grid-area: premiere;
     width: 50%;
     height: auto;
     align-self: center;
 }
+
 #notion-img {
     grid-area: notion;
     width: 50%;
     height: auto;
     align-self: center;
 }
+
 #meet-img {
     grid-area: meet;
     width: 50%;
@@ -578,14 +560,14 @@ li > div.custom-range-text-field {
 }
 
 .mvp-education-item {
-    background-color: #28D979; /* Зеленый цвет фона, как на скриншоте */
-    border-radius: 15px; /* Скругленные углы */
+    background-color: #28D979;
+    border-radius: 15px;
     padding: 3%;
-    color: white; /* Белый текст */
-    font-family: Poppins; /* Или любой другой шрифт */
-    margin: 20px auto; /* Центрировать блок */
-    display: flex; /* Для размещения даты/тега и основного контента */
-    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+    color: white;
+    font-family: Poppins;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .education {
@@ -593,18 +575,18 @@ li > div.custom-range-text-field {
 }
 
 .education-item {
-    background-color: white; /* Зеленый цвет фона, как на скриншоте */
-    border-radius: 15px; /* Скругленные углы */
+    background-color: white;
+    border-radius: 15px;
     padding: 3%;
-    color: balck; /* Белый текст */
-    font-family: Poppins; /* Или любой другой шрифт */
-    margin: 20px auto; /* Центрировать блок */
-    display: flex; /* Для размещения даты/тега и основного контента */
-    flex-direction: column; /* Элементы внутри блока расположены вертикально */
+    color: black;
+    font-family: Poppins;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .education-grid{
-    display: grid; /* Используем Grid для выравнивания иконок */
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
@@ -614,16 +596,14 @@ li > div.custom-range-text-field {
     width: 90%;
     justify-items: center;
     justify-content: center;
-
-    gap: 20px; /* Отступы между элементами сетки */
-    
+    gap: 20px;
 }
 
 .education-year-container {
-    display: flex; /* Для размещения даты и тега в одной строке */
-    justify-content: space-between; /* Размещает элементы по краям */
-    align-items: top; /* Выравнивает по центру по вертикали */
-    margin-top: 10px; /* Отступ снизу для отделения от контента */
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -638,9 +618,9 @@ li > div.custom-range-text-field {
 }
 
 .mvp-education-tags {
-    display: flex; /* Используем Flexbox для выравнивания тегов */
-    flex-wrap: wrap; /* Позволяет тегам переноситься на новую строку */
-    gap: 10px; /* Отступы между тегами */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 80%;
     margin: 0;
     font-weight: 100;
@@ -649,9 +629,9 @@ li > div.custom-range-text-field {
 }
 
 .education-tags {
-    display: flex; /* Используем Flexbox для выравнивания тегов */
-    flex-wrap: wrap; /* Позволяет тегам переноситься на новую строку */
-    gap: 10px; /* Отступы между тегами */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 80%;
     margin: 0;
     font-weight: 400;
@@ -659,7 +639,6 @@ li > div.custom-range-text-field {
     line-height: 1.5em;
     color: #149063;
 }
-
 
 .interests {
 }
@@ -669,18 +648,15 @@ li > div.custom-range-text-field {
 }
 
 .interest {
-
-    display: inline-block;        /* чтобы шли подряд и переносились */
-    background: white;             /* маленький белый фон */
-    border-radius: 30px;        /* форма «пилюльки» */
-    padding: 10px 15px;            /* внутренний отступ */
-    margin: 0 12px 12px 0;          /* расстояние между тегами (справа и снизу) */
+    display: inline-block;
+    background: white;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin: 0 12px 12px 0;
     font-size: 1em;
     line-height: 1.1;
-    white-space: nowrap;          
+    white-space: nowrap;
 }
-
-
 
 .contact {
     grid-area: contact;
@@ -689,14 +665,13 @@ li > div.custom-range-text-field {
 }
 
 #contact-text-id {
-    font-size: 1.5em; /* Увеличиваем размер шрифта для текста контакта */
+    font-size: 1.5em;
     font-weight: 300;
 }
 
 #contact-email-id {
     display: flex;
-
-    font-size: 1.2em; /* Увеличиваем размер шрифта для email */
+    font-size: 1.2em;
     font-weight: 300;
 }
 
@@ -719,16 +694,14 @@ li > div.custom-range-text-field {
   outline: none;
   border-color: #007bff;
   background-color: #dedede;
-  color: #000; /* Можно сделать цвет текста более темным/контрастным */
+  color: #000;
 }
 
 @keyframes highlightChange {
-  0% { background-color: #c5ffc5; } /* Светло-зеленый фон */
-  100% { background-color: transparent; } /* Прозрачный фон */
+  0% { background-color: #c5ffc5; }
+  100% { background-color: transparent; }
 }
 
 .saved-highlight {
-  animation: highlightChange 0.8s ease-out; /* Применяем анимацию */
+  animation: highlightChange 0.8s ease-out;
 }
-
-
