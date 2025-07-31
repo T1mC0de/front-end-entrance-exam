@@ -2,26 +2,27 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
     <title>My CV</title>
   </head>
 
   <body>
 
     <header>
-      <a href="/resume.pdf" download class="resume-link">
+      <button id="download-button" class="resume-link">
         <span>Скачать резюме</span>
-      </a>
+      </button>
     </header>
 
-    <main>
+    <main id="resume-main-content">
 
       <div class="intro-row">
 
-        <img id="profile-img" src="./assets/profileImg.svg" alt="Profile Image" />
+        <img id="profile-img" src="./assets/profileImg.svg" alt="Profile Image">
 
         <section class="intro">
           <p id="greeting" contenteditable="true">Hello 👋🏻 I'm</p>
@@ -30,11 +31,11 @@
         </section>
 
         <section class="languages">
-          <h2 id="languages" >Languages</h2>
-          <ul class="language-list" contenteditable="true">
-            <li class="language-list-item">English <span class="flex-spacer" ></span> <div class="custom-range-text-field" style="--fill-percentage: 100%;" contenteditable="false"></div></li>
-            <li class="language-list-item">Malayalam <span class="flex-spacer"></span> <div class="custom-range-text-field" style="--fill-percentage: 100%;" contenteditable="false"></div></li>
-            <li class="language-list-item">Hindi <span class="flex-spacer"></span> <div class="custom-range-text-field" style="--fill-percentage: 70%;" contenteditable="false"></div></li>
+          <h2 id="languages-header" contenteditable="true">Languages</h2>
+          <ul class="language-list">
+            <li class="language-list-item"><span id="language-item1" contenteditable="true">English </span><span class="flex-spacer" ></span> <div class="custom-range-text-field" style="--fill-percentage: 100%;" ></div></li>
+            <li class="language-list-item"><span id="language-item2" contenteditable="true">Malayalam</span> <span class="flex-spacer"></span> <div class="custom-range-text-field" style="--fill-percentage: 100%;"></div></li>
+            <li class="language-list-item"><span id="language-item3" contenteditable="true">Hindi</span> <span class="flex-spacer"></span> <div class="custom-range-text-field" style="--fill-percentage: 70%;"></div></li>
           </ul>
           
         </section>
@@ -42,197 +43,197 @@
 
       <div class="experience-row">
         <section class="experience">
-          <h2 contenteditable="true">Experience</h2>
+          <h2 id="experience-header" contenteditable="true">Experience</h2>
 
-          <article class="most-recent-job">
+          <div class="most-recent-job">
 
             <div class="most-recent-job-header">
-              <span class="date">Jun. 2023 - Present</span>
-              <span class="tag">most recent</span>
+              <span id="most-recent-job-date-id" contenteditable="true" class="date">Jun. 2023 - Present</span>
+              <span id="most-recent-job-tag-id" contenteditable="true" class="tag">most recent</span>
             </div>
 
             <div class="most-recent-job-content">
 
               <div class="most-recent-job-place">
-                <span id="most-recent-job-title">Marketing Manager</span>
-                <span class="most-recent-job-extra">Pankayam  |   Full-time</span>
+                <span id="most-recent-job-title" contenteditable="true">Marketing Manager</span>
+                <span id="most-recent-job-extra" contenteditable="true" class="most-recent-job-extra">Pankayam  |   Full-time</span>
               </div>
 
               <div class="most-recent-job-description">
                 <ul class="most-recent-job-list">
-                  <li>Developed and executed marketing strategies that increased brand awareness by 30%.</li>
-                  <li>Managed a team of 5 marketing professionals to achieve quarterly targets.</li>
+                  <li id="most-recent-job-list-item1" contenteditable="true">Developed and executed marketing strategies that increased brand awareness by 30%.</li>
+                  <li id="most-recent-job-list-item2" contenteditable="true">Managed a team of 5 marketing professionals to achieve quarterly targets.</li>
                 </ul>
               </div>
 
             </div>
 
-          </article>
+          </div>
 
-           <article class="job">
+           <div class="job">
 
             <div class="most-recent-job-header">
-              <span class="date">Jun. 2023 - Present</span>
+              <span id="job-date1" contenteditable="true" class="date">Jun. 2023 - Present</span>
             </div>
 
             <div class="most-recent-job-content">
 
               <div class="job-place">
-                <span class="job-title">Graphic / Web designer</span>
-                <span class="job-extra">Freelance</span>
+                <span id='job-title1' contenteditable="true" class="job-title">Graphic / Web designer</span>
+                <span id='job-extra1' contenteditable="true" class="job-extra">Freelance</span>
               </div>
 
               <div class="most-recent-job-description">
                 <ul class="job-list">
-                  <li class="job-list-item">Development of internal projects from scratch, product design of brands </li>
-                  <li class="job-list-item">Landing page, webapps and hybrid apps</li>
-                  <li class="job-list-item">Coordinating with outside agencies, art services, web designer, marketing, printers, and colleagues as necessary.</li>
+                  <li id='job-list-item1' contenteditable="true" class="job-list-item">Development of internal projects from scratch, product design of brands </li>
+                  <li id='job-list-item2' contenteditable="true" class="job-list-item">Landing page, webapps and hybrid apps</li>
+                  <li id='job-list-item3' contenteditable="true" class="job-list-item">Coordinating with outside agencies, art services, web designer, marketing, printers, and colleagues as necessary.</li>
                 </ul>
               </div>
 
             </div>
 
-          </article>
+          </div>
 
-          <article class="job">
+          <div class="job">
 
             <div class="most-recent-job-header">
-              <span class="date">Jun. 2023 - Present</span>
+              <span id="job-date2" contenteditable="true" class="date">Jun. 2023 - Present</span>
             </div>
 
             <div class="most-recent-job-content">
 
               <div class="job-place">
-                <span class="job-title">Legal Assistant</span>
-                <span class="job-extra">Law Firm | Intern</span>
+                <span id='job-title2' contenteditable="true" class="job-title">Legal Assistant</span>
+                <span id='job-extra2' contenteditable="true" class="job-extra">Law Firm | Intern</span>
               </div>
 
               <div class="most-recent-job-description">
                 <ul class="job-list">
-                  <li class="job-list-item">Provide administrative support to lawyer and enhance office effectiveness </li>
-                  <li class="job-list-item">Handle communication with clients, witnesses etc.</li>
-                  <li class="job-list-item">Prepare case briefs and summarize depositions, interrogatories and testimony</li>
+                  <li id='job-list-item4' contenteditable="true" class="job-list-item">Provide administrative support to lawyer and enhance office effectiveness </li>
+                  <li id='job-list-item5' contenteditable="true" class="job-list-item">Handle communication with clients, witnesses etc.</li>
+                  <li id='job-list-item6' contenteditable="true" class="job-list-item">Prepare case briefs and summarize depositions, interrogatories and testimony</li>
                 </ul>
               </div>
 
             </div>
 
-          </article>
+          </div>
             
         </section>
 
         <section class="tools">
-          <h2 id="tools">Tools</h2>
+          <h2 id="tools" contenteditable="true">Tools</h2>
 
-          <article class="design">
-            <span class="design-icon">design</span>
+          <div class="design">
+            <span id="design-icon" contenteditable="true" class="design-icon">design</span>
             <div class="icons-design-grid">
-              <img id="figma-img" src="./assets/logoFigma.svg" alt="Design Icon" />
-              <img id="photoshop-img" src="./assets/icon_adobe_photoshop.svg" alt="photoshop icon" />
-              <img id="illustrator-img" src="./assets/icon_adobe_illustrator.svg" alt="illustrator icon" />
-              <img id="premiere-img" src="./assets/icon_adobe_premiere.svg" alt="premiere icon" />
-              <img id="notion-img" src="./assets/logoNotion.svg" alt="notion icon" />
-              <img id="meet-img" src="./assets/logoMeet.svg" alt="meet icon" />
+              <img id="figma-img" src="./assets/logoFigma.svg" alt="Design Icon">
+              <img id="photoshop-img" src="./assets/icon_adobe_photoshop.svg" alt="photoshop icon">
+              <img id="illustrator-img" src="./assets/icon_adobe_illustrator.svg" alt="illustrator icon">
+              <img id="premiere-img" src="./assets/icon_adobe_premiere.svg" alt="premiere icon">
+              <img id="notion-img" src="./assets/logoNotion.svg" alt="notion icon">
+              <img id="meet-img" src="./assets/logoMeet.svg" alt="meet icon">
             </div>
-          </article>
+          </div>
           
 
-          <article class="no-code">
-            <span class="design-icon">no-code</span>
+          <div class="no-code">
+            <span id="no-code-icon" contenteditable="true" class="design-icon">no-code</span>
             <div class="icons-no-code-grid">
-              <img id="zapier-img" src="./assets/logoZapìer 1.svg" alt="Design Icon" />
-              <img id="webflow-img" src="./assets/logoWebflow.svg" alt="photoshop icon" />
-              <img id="framer-img" src="./assets/logoFramer.svg" alt="illustrator icon" />
-              <img id="wordpress-img" src="./assets/logoWordpress.svg" alt="premiere icon" />
+              <img id="zapier-img" src="./assets/logoZapìer_1.svg" alt="Design Icon">
+              <img id="webflow-img" src="./assets/logoWebflow.svg" alt="photoshop icon">
+              <img id="framer-img" src="./assets/logoFramer.svg" alt="illustrator icon">
+              <img id="wordpress-img" src="./assets/logoWordpress.svg" alt="premiere icon">
             </div>
-          </article>
+          </div>
 
 
-          <article class="AI">
-            <span class="ai-icon">artificial intelligence</span>
+          <div class="AI">
+            <span id="ai-icon" contenteditable="true" class="ai-icon">artificial intelligence</span>
             <div class="icons-ai-grid">
-              <img id="gpt-img" src="./assets/logoChatGPT.svg" alt="Design Icon" />
-              <img id="copilot-img" src="./assets/logoCopilot.svg" alt="photoshop icon" />
-              <img id="midjourney-img" src="./assets/logoMidjourney.svg" alt="illustrator icon" />
+              <img id="gpt-img" src="./assets/logoChatGPT.svg" alt="Design Icon">
+              <img id="copilot-img" src="./assets/logoCopilot.svg" alt="photoshop icon">
+              <img id="midjourney-img" src="./assets/logoMidjourney.svg" alt="illustrator icon">
             </div>
-          </article>
+          </div>
         </section>
       </div>
 
       <div class = "education-row">
 
         <section class="education">
-          <h2 id="education-header">Education</h2>
+          <h2 id="education-header" contenteditable="true">Education</h2>
 
           <div class="education-grid">
-            <article class="mvp-education-item">
+            <div class="mvp-education-item">
               <div class="education-year-container">
-                <span class="education-year">2023</span>
-                <img class="education-heart-icon" src="./assets/heart.svg" alt="heart Icon" />
+                <span id="education-year1" contenteditable="true" class="education-year">2023</span>
+                <img class="education-heart-icon" src="./assets/heart.svg" alt="heart Icon">
               </div>
 
               <div class="mvp-education-content">
-                <span class="education-title">UI/UX</span>
-                <p class="mvp-education-tags">#UX #UI #research #DesignSystem #Ui #wireframing #figma #Ux</p>
-                <p class="education-place">Coursera</p>
+                <span id="education-title1" contenteditable="true" class="education-title">UI/UX</span>
+                <p id="education-tags1" contenteditable="true" class="mvp-education-tags">#UX #UI #research #DesignSystem #Ui #wireframing #figma #Ux</p>
+                <p id="education-place1" contenteditable="true" class="education-place">Coursera</p>
               </div>
 
-            </article>
+            </div>
 
-            <article class="education-item">
+            <div class="education-item">
               <div class="education-year-container">
-                <span class="education-year">2017 - 2023</span>
+                <span id="education-year2" contenteditable="true" class="education-year">2017 - 2023</span>
               </div>
 
               <div class="mvp-education-content">
-                <span class="education-title">Law</span>
-                <p class="education-tags">#law #legalStudies #contracts #internationalLaws</p>
-                <p class="education-place">University of Kerala</p>
+                <span id="education-title2" contenteditable="true" class="education-title">Law</span>
+                <p id="education-tags2" contenteditable="true" class="education-tags">#law #legalStudies #contracts #internationalLaws</p>
+                <p id="education-place2" contenteditable="true" class="education-place">University of Kerala</p>
               </div>
 
-            </article>
+            </div>
 
-            <article class="education-item">
+            <div class="education-item">
               <div class="education-year-container">
-                <span class="education-year">2017</span>
+                <span id="education-year3" contenteditable="true" class="education-year">2017</span>
               </div>
 
               <div class="mvp-education-content">
-                <span class="education-title">Graphic design</span>
-                <p class="education-tags">#branding #web #illustration #adobe</p>
-                <p class="education-place">Coursera</p>
+                <span id="education-title3" contenteditable="true" class="education-title">Graphic design</span>
+                <p id="education-tags3" contenteditable="true" class="education-tags">#branding #web #illustration #adobe</p>
+                <p id="education-place3" contenteditable="true" class="education-place">Coursera</p>
               </div>
-
-            </article>
-
-
+            </div>
           </div>
 
         </section>
 
         <section class="interests">
-          <h2>Interests</h2>
-          <span class="interest">branding</span>
-          <span class="interest">design</span>
-          <span class="interest">photography</span>
-          <span class="interest">branding</span>
-          <span class="interest">branding</span>
-          <span class="interest">branding</span>
-          <span class="interest">branding</span>
-          <span class="interest">branding</span>
+          <h2 id="interests-id" contenteditable="true">Interests</h2>
+          <span id="interest1" contenteditable="true" class="interest">branding</span>
+          <span id="interest2" contenteditable="true" class="interest">design</span>
+          <span id="interest3" contenteditable="true" class="interest">photography</span>
+          <span id="interest4" contenteditable="true" class="interest">artificial intelligence</span>
+          <span id="interest5" contenteditable="true" class="interest">illustration</span>
+          <span id="interest6" contenteditable="true" class="interest">typography</span>
+          <span id="interest7" contenteditable="true" class="interest">social networks</span>
+          <span id="interest8" contenteditable="true" class="interest">research</span>
+          <span id="interest9" contenteditable="true" class="interest">dron pilot</span>
+          <span id="interest10" contenteditable="true" class="interest">games</span>
 
         </section>
 
         <section class="contact">
-          <h4>Let's chat! I'm ready to work on exciting projects</h4>
-          <p>srkarthik.designscape@gmail.com</p>
+          <h4 id="contact-text-id" contenteditable="true">Let's chat! I'm ready to work on exciting projects</h4>
+          <p id="contact-email-id" contenteditable="true">srkarthik.designscape@gmail.com</p>
         </section>
 
       </div>
     </main>
 
-  </body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/src/test.js"></script>
 
-  <script src="../src/test.js"></script>
+  </body>
 
 </html>

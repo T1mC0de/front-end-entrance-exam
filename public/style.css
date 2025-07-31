@@ -1,7 +1,12 @@
-
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins;
     margin: 0;
     background-color: #F0F0F0;
     min-height: 100vh; /* Гарантируем, что body займет всю высоту viewport */
@@ -22,7 +27,7 @@ body {
     
 }
 
-main {
+#resume-main-content {
     padding: 2%; /* Общие отступы от краев окна браузера */
 
     margin: 0% 20%;
@@ -30,7 +35,7 @@ main {
     background-color: white;
 
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 0.5fr 2fr 1.5fr;
     grid-template-columns: 1fr;
     grid-template-areas:
         "intro-row"
@@ -118,7 +123,7 @@ section {
 .education-row {
     grid-area: education-row;
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 3fr 2fr;
     grid-template-columns: 1fr 1fr; /* 3 колонки: изображение, основная информация, языки */
     grid-template-areas: 
       "education interests"
@@ -232,7 +237,7 @@ li > div.custom-range-text-field {
     border-radius: 15px; /* Скругленные углы */
     padding: 3%;
     color: white; /* Белый текст */
-    font-family: sans-serif; /* Или любой другой шрифт */
+    font-family: Poppins; /* Или любой другой шрифт */
     margin: 20px auto; /* Центрировать блок */
     display: flex; /* Для размещения даты/тега и основного контента */
     flex-direction: column; /* Элементы внутри блока расположены вертикально */
@@ -339,7 +344,7 @@ li > div.custom-range-text-field {
     border-radius: 15px; /* Скругленные углы */
     padding: 3%;
     color: black; /* Черный текст */
-    font-family: sans-serif; /* Или любой другой шрифт */
+    font-family: Poppins; /* Или любой другой шрифт */
     margin: 20px auto; /* Центрировать блок */
     display: flex; /* Для размещения даты/тега и основного контента */
     flex-direction: column; /* Элементы внутри блока расположены вертикально */
@@ -398,7 +403,7 @@ li > div.custom-range-text-field {
     color: white; /* Белый текст */
     padding: 5px 10px; /* Отступы внутри подписи */
     border-radius: 50px; /* Очень большое скругление для pill-образного вида */
-    font-family: Arial, sans-serif; /* Пример шрифта, выберите свой */
+    font-family: Poppins; /* Пример шрифта, выберите свой */
     font-size: 8px; /* Размер шрифта */
     font-weight: 400; /* Жирный текст */
     text-transform: lowercase; /* Все буквы маленькие, как на картинке */
@@ -423,7 +428,7 @@ li > div.custom-range-text-field {
     color: white; /* Белый текст */
     padding: 5px 10px; /* Отступы внутри подписи */
     border-radius: 50px; /* Очень большое скругление для pill-образного вида */
-    font-family: Arial, sans-serif; /* Пример шрифта, выберите свой */
+    font-family: Poppins; /* Пример шрифта, выберите свой */
     font-size: 8px; /* Размер шрифта */
     font-weight: 400; /* Жирный текст */
     text-transform: lowercase; /* Все буквы маленькие, как на картинке */
@@ -577,7 +582,7 @@ li > div.custom-range-text-field {
     border-radius: 15px; /* Скругленные углы */
     padding: 3%;
     color: white; /* Белый текст */
-    font-family: sans-serif; /* Или любой другой шрифт */
+    font-family: Poppins; /* Или любой другой шрифт */
     margin: 20px auto; /* Центрировать блок */
     display: flex; /* Для размещения даты/тега и основного контента */
     flex-direction: column; /* Элементы внутри блока расположены вертикально */
@@ -592,7 +597,7 @@ li > div.custom-range-text-field {
     border-radius: 15px; /* Скругленные углы */
     padding: 3%;
     color: balck; /* Белый текст */
-    font-family: sans-serif; /* Или любой другой шрифт */
+    font-family: Poppins; /* Или любой другой шрифт */
     margin: 20px auto; /* Центрировать блок */
     display: flex; /* Для размещения даты/тега и основного контента */
     flex-direction: column; /* Элементы внутри блока расположены вертикально */
@@ -657,39 +662,73 @@ li > div.custom-range-text-field {
 
 
 .interests {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 16px;
-    grid-area: interests;
-    width: 100%;
 }
 
-.interests h2 {
-    width: 100%;
-    height: 10%;
-    margin: 0 0 8px 0;
+#interests-id {
+    margin-bottom: 35px;
 }
 
 .interest {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 10px;
-    font-size: 14px;
-    font-weight: 500;
 
-    color: black;
-    background-color: white;
-    white-space: nowrap; /* чтобы не переносился текст */
-    line-height: 1;
+    display: inline-block;        /* чтобы шли подряд и переносились */
+    background: white;             /* маленький белый фон */
+    border-radius: 30px;        /* форма «пилюльки» */
+    padding: 10px 15px;            /* внутренний отступ */
+    margin: 0 12px 12px 0;          /* расстояние между тегами (справа и снизу) */
+    font-size: 1em;
+    line-height: 1.1;
+    white-space: nowrap;          
 }
 
 
 
 .contact {
     grid-area: contact;
+    background-color: black;
+    color: white;
 }
 
+#contact-text-id {
+    font-size: 1.5em; /* Увеличиваем размер шрифта для текста контакта */
+    font-weight: 300;
+}
+
+#contact-email-id {
+    display: flex;
+
+    font-size: 1.2em; /* Увеличиваем размер шрифта для email */
+    font-weight: 300;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
+
+[contenteditable="true"]:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #dedede;
+  color: #000; /* Можно сделать цвет текста более темным/контрастным */
+}
+
+@keyframes highlightChange {
+  0% { background-color: #c5ffc5; } /* Светло-зеленый фон */
+  100% { background-color: transparent; } /* Прозрачный фон */
+}
+
+.saved-highlight {
+  animation: highlightChange 0.8s ease-out; /* Применяем анимацию */
+}
 
 
