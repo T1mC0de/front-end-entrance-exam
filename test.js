@@ -1,4 +1,4 @@
-import { html2pdf } from "html2pdf.js";
+import html2pdf from "html2pdf.js";
 
 const editableElementIds = [
     'greeting', 'name', 'greeting-position',
